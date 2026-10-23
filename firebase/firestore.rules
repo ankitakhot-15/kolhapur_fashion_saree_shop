@@ -1,0 +1,93 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Helper functions
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+    
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+    
+    function isAdmin() {
+      return isAuthenticated() && (
+        request.auth.token.admin == true ||
+        request.auth.token.email in ['ankitakhot015@gmail.com', 'akashkhot73@gmail.com']
+      );
+    }
+
+    // Public catalog read, admin write
+    match /products/{productId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /categories/{categoryId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /banners/{bannerId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /offers/{offerId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /coupons/{couponId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /storeSettings/{settingId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // Customer private data
+    match /carts/{userId} {
+      allow read, write: if isOwner(userId) || isAdmin();
+    }
+
+    match /wishlists/{userId} {
+      allow read, write: if isOwner(userId) || isAdmin();
+    }
+
+    match /addresses/{addressId} {
+      allow read, write: if isAuthenticated() && (resource == null || resource.data.userId == request.auth.uid) || isAdmin();
+    }
+
+    // Orders: customers can view their own orders; privileged backend/admin can update status
+    match /orders/{orderId} {
+      allow read: if isAuthenticated() && (resource.data.userId == request.auth.uid || resource.data.customerEmail == request.auth.token.email) || isAdmin();
+      allow create: if isAuthenticated();
+      allow update: if isAdmin();
+      allow delete: if false; // Orders are immutable/archival
+    }
+
+    // Inventory & audit logs strictly protected
+    match /inventory/{itemId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /inventoryMovements/{movId} {
+      allow read: if isAdmin();
+      allow write: if isAdmin();
+    }
+
+    match /auditLogs/{logId} {
+      allow read: if isAdmin();
+      allow write: if isAdmin();
+    }
+
+    match /otpChallenges/{challengeId} {
+      allow read, write: if false; // Handled exclusively via backend server
+    }
+  }
+}

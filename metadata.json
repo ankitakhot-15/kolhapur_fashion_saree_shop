@@ -1,0 +1,6 @@
+{
+  "name": "Kolhapuri Fashion Saree",
+  "description": "Premium authentic Kolhapuri handloom sarees, Paithani, bridal silks, and traditional designer collections with secure checkout and owner admin portal.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
