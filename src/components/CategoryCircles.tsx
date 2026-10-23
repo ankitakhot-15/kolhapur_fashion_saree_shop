@@ -152,6 +152,7 @@ export const CategoryCircles: React.FC<CategoryCirclesProps> = ({
               </span>
             </button>
           );
+          
         })}
       </div>
     </section>
