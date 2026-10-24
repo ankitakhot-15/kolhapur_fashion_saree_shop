@@ -10,10 +10,14 @@ import {
 } from '../types/index.ts';
 
 // High-fidelity image assets generated for Kolhapuri Fashion Saree
-export const IMAGE_HERO_PAITHANI = '/src/assets/images/hero_paithani_saree_1792591861414.jpg';
-export const IMAGE_SAREE_PURPLE = '/src/assets/images/saree_paithani_purple_1792591862050.jpg';
-export const IMAGE_SAREE_MAROON = '/src/assets/images/saree_banarasi_maroon_1792591862999.jpg';
-export const IMAGE_SAREE_EMERALD = '/src/assets/images/saree_designer_emerald_1792591862844.jpg';
+export const IMAGE_HERO_PAITHANI = '/images/hero_paithani_saree_1792591861414.jpg';
+export const IMAGE_SAREE_PURPLE = '/images/saree_paithani_purple_1792591862050.jpg';
+export const IMAGE_SAREE_MAROON = '/images/saree_banarasi_maroon_1792591862999.jpg';
+export const IMAGE_SAREE_EMERALD = '/images/saree_designer_emerald_1792591862844.jpg';
+// export const IMAGE_HERO_PAITHANI = '/src/assets/images/hero_paithani_saree_1792591861414.jpg';
+// export const IMAGE_SAREE_PURPLE = '/src/assets/images/saree_paithani_purple_1792591862050.jpg';
+// export const IMAGE_SAREE_MAROON = '/src/assets/images/saree_banarasi_maroon_1792591862999.jpg';
+// export const IMAGE_SAREE_EMERALD = '/src/assets/images/saree_designer_emerald_1792591862844.jpg';
 
 export const INITIAL_CATEGORIES: CategoryItem[] = [
   {
