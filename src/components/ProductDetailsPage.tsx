@@ -850,7 +850,6 @@ import {
   ArrowLeft,
   Check,
   Sparkles,
-  Camera,
 } from "lucide-react";
 import { SareeProduct, SareeVariant } from "../types/index.ts";
 import {
@@ -859,7 +858,6 @@ import {
 } from "../utils/formatters.ts";
 import { storeService } from "../services/storeService.ts";
 import { ProductGallery } from "./ProductGallery.tsx";
-import { TryOnModal } from "./TryOnModal.tsx";
 
 interface ProductDetailsPageProps {
   product: SareeProduct;
@@ -882,7 +880,6 @@ export const ProductDetailsPage: React.FC<ProductDetailsPageProps> = ({
     storeService.getWishlist().includes(product.id),
   );
   const [shareSuccess, setShareSuccess] = useState(false);
-  const [isTryOnOpen, setIsTryOnOpen] = useState(false);
 
   // Reset state when a different product is opened (e.g. from "You May Also Admire")
   useEffect(() => {
@@ -1275,13 +1272,6 @@ export const ProductDetailsPage: React.FC<ProductDetailsPageProps> = ({
                 </div>
               </div>
             ))}
-            {/* NEW: Try-on popup */}
-            <TryOnModal
-              isOpen={isTryOnOpen}
-              onClose={() => setIsTryOnOpen(false)}
-              garmentImageUrl={activeImage}
-              productName={product.name}
-            />
           </div>
         </div>
       )}
