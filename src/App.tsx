@@ -1240,7 +1240,8 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#FAF7F0] text-[#292522] w-full max-w-full overflow-x-clip min-w-0">
+    // <div className="min-h-screen flex flex-col bg-[#FAF7F0] text-[#292522] w-full max-w-full overflow-x-clip min-w-0">
+    <div className="min-h-screen flex flex-col bg-[#FAF7F0] text-[#292522] w-full min-w-0">
       {/* Toast Notification */}
       {toastMessage && (
         <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 bg-[#292522] text-[#FAF7F0] px-3.5 py-2.5 sm:px-4 sm:py-3 rounded-lg shadow-xl border border-[#C7A66A]/40 text-xs font-semibold flex items-center gap-2 transition-all max-w-[calc(100vw-2rem)]">

@@ -1926,8 +1926,8 @@ import ProductVariantsEditor, {
   validateVariants,
 } from "./ProductVariantsEditor.tsx";
 import ImageUploadField from "./ImageUploadField.tsx";
-import { OrdersPanel } from "./Orderspanel .tsx";
 import StockImport from "./StockImport.tsx";
+import { OrdersPanel } from "./OrdersPanel.tsx";
 
 interface AdminPortalProps {
   onExitToStore: () => void;
